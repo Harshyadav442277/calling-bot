@@ -1,0 +1,111 @@
+@import "tailwindcss";
+
+:root {
+  --ink: #18181f;
+  --ink-2: #2b2b35;
+  --paper: #f4f3f8;
+  --surface: #ffffff;
+  --line: #e6e4ee;
+  --muted: #6c6a7a;
+  --faint: #a3a1b0;
+  --lilac: #cfc5f5;
+  --lilac-soft: #efebfd;
+  --lilac-deep: #5b4bc4;
+  --peach: #f8d6c0;
+  --peach-soft: #fdf0e7;
+  --lime: #dcea95;
+  --lime-soft: #f4f8dc;
+  --ok: #2f7a4a;
+  --ok-soft: #e4f3e9;
+  --warn: #b5502f;
+  --warn-soft: #fbe9e2;
+}
+
+@theme inline {
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-paper: var(--paper);
+  --color-surface: var(--surface);
+  --color-line: var(--line);
+  --color-muted: var(--muted);
+  --color-faint: var(--faint);
+  --color-lilac: var(--lilac);
+  --color-lilac-soft: var(--lilac-soft);
+  --color-lilac-deep: var(--lilac-deep);
+  --color-peach: var(--peach);
+  --color-peach-soft: var(--peach-soft);
+  --color-lime: var(--lime);
+  --color-lime-soft: var(--lime-soft);
+  --color-ok: var(--ok);
+  --color-ok-soft: var(--ok-soft);
+  --color-warn: var(--warn);
+  --color-warn-soft: var(--warn-soft);
+  --font-sans: var(--font-body);
+  --font-display: var(--font-display);
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+::selection {
+  background: var(--lilac);
+}
+
+:focus-visible {
+  outline: 2px solid var(--lilac-deep);
+  outline-offset: 2px;
+}
+
+/* The one decorative device: a soft colour aura, used on hero surfaces only. */
+.aura {
+  background:
+    radial-gradient(60% 80% at 0% 0%, var(--lilac) 0%, transparent 70%),
+    radial-gradient(55% 70% at 100% 10%, var(--peach) 0%, transparent 70%),
+    radial-gradient(70% 70% at 60% 120%, var(--lime) 0%, transparent 70%),
+    #f7f6fb;
+}
+
+.pill-gradient {
+  background: linear-gradient(100deg, var(--lime) 0%, var(--peach) 55%, var(--lilac) 100%);
+}
+
+.scrollbar-none {
+  scrollbar-width: none;
+}
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@page {
+  size: A4 landscape;
+  margin: 10mm;
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  body {
+    background: #fff;
+  }
+}
